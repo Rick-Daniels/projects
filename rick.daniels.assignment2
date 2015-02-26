@@ -1,0 +1,87 @@
+var win1 = Titanium.UI.createWindow ({
+	
+	title: 'window1',
+	
+	backgroundColor: '#66FFFF'
+	
+});
+
+
+win1.open();
+
+
+
+var label1 = Ti.UI.createLabel({
+	text : 'Welcome to the APP!!',
+	color : '#000066',
+	font : {fontSize: 45,fontFamily:'Comin Sans MS'},
+	top : 45,
+	left : 100,
+	textAlign : 'center'
+});
+
+
+win1.add(label1);
+
+
+
+var button1 = Ti.UI.createButton({
+	title : 'Move on!',
+	top : 10,
+	left : 10
+});
+
+
+button1.addEventListener('click', function() {
+	win2.open();
+	
+	
+});
+
+
+win1.add(button1);
+
+
+
+
+var win2 = Titanium.UI.createWindow ({
+	
+	title: 'window2',
+
+	backgroundColor: '#95E4FB'
+	
+});
+ 
+
+
+
+var button2 = Ti.UI.createButton({
+	title : 'button2',
+	
+	top : 10,
+	left : 10
+});
+
+
+button2.addEventListener('click', function() {
+win2.close();
+
+	
+});
+
+win2.add(button2);
+
+ 
+ 
+ var switchorientation = Ti.UI.createButton ({ title: 'Make Landscape'});
+ switchorientation.addEventListener('click', rotatelayout);
+ 
+var layout = Ti.UI.createView({layout: 'vertical'});
+layout.add(switchorientation);
+function rotatelayout(){
+	win1.orientationModes = [Ti.UI.LANDSCAPE_LEFT];
+	switchorientation.hide();
+	
+}
+
+win1.add(switchorientation);
